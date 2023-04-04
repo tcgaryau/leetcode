@@ -61,9 +61,9 @@ def main():
     test_1 = {"nums": [2, 7, 11, 15], "target": 9}
     test_2 = {"nums": [3, 2, 4], "target": 6}
     test_3 = {"nums": [3, 3], "target": 6}
-    print(sol.twoSumTwoPointer(**test_1))
-    print(sol.twoSumTwoPointer(**test_2))
-    print(sol.twoSumTwoPointer(**test_3))
+    print(sol.twoSum(**test_1))
+    print(sol.twoSum(**test_2))
+    print(sol.twoSum(**test_3))
 
 
 if __name__ == "__main__":
