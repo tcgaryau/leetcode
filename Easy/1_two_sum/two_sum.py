@@ -19,26 +19,21 @@ class Solution:
     Two Pointers with sort
     Sort the nums in an ascending order. Then we can use two-pointers where we increment left if nums[left] + nums[right] < target and vice versa until it equals the solution
     Time Complexity O(nlogn) - this is mainly determined by the python's sorting algorithm which uses TimSort
-    Space Complexity O(n) as we will have to store a sorted list
+    Space Complexity O(n) as we will have to store a hashmap to lookup the values to the index
     """
 
     def twoSumTwoPointer(self, nums: List[int], target: int) -> List[int]:
-        nums_sorted = sorted(nums)
-        left_ptr, right_ptr = 0, len(nums_sorted) - 1
+        nums_map = {val: ind for ind, val in enumerate(nums)}
+        nums.sort()
+        left_ptr, right_ptr = 0, len(nums) - 1
         while left_ptr < right_ptr:
-            if nums_sorted[left_ptr] + nums_sorted[right_ptr] == target:
+            if nums[left_ptr] + nums[right_ptr] == target:
                 break
-            if nums_sorted[left_ptr] + nums_sorted[right_ptr] < target:
+            if nums[left_ptr] + nums[right_ptr] < target:
                 left_ptr += 1
             else:
                 right_ptr -= 1
-        result = []
-        for ind, num in enumerate(nums):
-            if num == nums_sorted[left_ptr]:
-                result.append(ind)
-            elif num == nums_sorted[right_ptr]:
-                result.append(ind)
-        return result
+        return [nums_map[nums[left_ptr]], nums_map[nums[right_ptr]]]
 
     """
     Hash Map
@@ -61,9 +56,9 @@ def main():
     test_1 = {"nums": [2, 7, 11, 15], "target": 9}
     test_2 = {"nums": [3, 2, 4], "target": 6}
     test_3 = {"nums": [3, 3], "target": 6}
-    print(sol.twoSum(**test_1))
-    print(sol.twoSum(**test_2))
-    print(sol.twoSum(**test_3))
+    print(sol.twoSumTwoPointer(**test_1))
+    print(sol.twoSumTwoPointer(**test_2))
+    print(sol.twoSumTwoPointer(**test_3))
 
 
 if __name__ == "__main__":
