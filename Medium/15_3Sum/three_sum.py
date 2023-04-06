@@ -2,14 +2,12 @@ from typing import List
 
 
 class Solution:
-
-    """
-    Brute force approach using 3 pointers to iterate through the list. It sorts the nums list first.
-    Time Complexity: O(n^3)
-    Space Complexity: O(1)
-    """
-
     def threeSumBruteForce(self, nums: List[int]) -> List[List[int]]:
+        """
+        Brute force approach using 3 pointers to iterate through the list. It sorts the nums list first.
+        Time Complexity: O(n^3)
+        Space Complexity: O(1)
+        """
         nums.sort()
         res = []
         for i in range(0, len(nums) - 2):
@@ -25,14 +23,13 @@ class Solution:
                         res.append([nums[i], nums[j], nums[k]])
         return res
 
-    """
-    Make 2 pointers that iterate it from i to N-1 and j=i+1 to N-1 and iterate through it. The last value we can use a binary search on the remaining subtree for - (nums[i] + nums[j])
-    and if it exists, we can return it.
-    Time Complexity: O(n^2 log(n))
-    S
-    """
-
     def threeSumBinarySearch(self, nums: List[int]) -> List[List[int]]:
+        """
+        Make 2 pointers that iterate it from i to N-1 and j=i+1 to N-1 and iterate through it. The last value we can use a binary search on the remaining subtree for - (nums[i] + nums[j])
+        and if it exists, we can return it.
+        Time Complexity: O(n^2 log(n))
+        Space Complexity: O(1) if we don't count the result array
+        """
         def binarySearch(low, high, target, nums) -> bool:
             if low > high:
                 return False
@@ -57,13 +54,12 @@ class Solution:
                     res.append([nums[i], nums[j], target])
         return res
 
-    """
-    Sort the nums first. Then we loop through nums and then put in a 2-pointer solution from two-sum to determine if we need to add it to our results.
-    Time Complexity: O(n^2) - because sorting is O(nlogn) and looping through it twice is O(n^2)
-    Space Complexity: O(n) since python uses Timsort which is a variation of merge sort.
-    """
-
     def threeSum(self, nums: List[int]) -> List[List[int]]:
+        """
+        Sort the nums first. Then we loop through nums and then put in a 2-pointer solution from two-sum to determine if we need to add it to our results.
+        Time Complexity: O(n^2) - because sorting is O(nlogn) and looping through it twice is O(n^2)
+        Space Complexity: O(n) since python uses Timsort which is a variation of merge sort.
+        """
         res = []
         nums.sort()
 

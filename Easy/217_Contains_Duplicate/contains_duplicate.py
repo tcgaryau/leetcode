@@ -2,28 +2,26 @@ from typing import List
 
 
 class Solution:
-    """
-    Brute Force
-    Loops through and check every value against every other value and see if they match.
-    Time Complexity O(n^2)
-    Space Complexity O(1)
-    """
-
     def contains_duplicate_brute_force(self, nums: List[int]) -> bool:
+        """
+        Brute Force
+        Loops through and check every value against every other value and see if they match.
+        Time Complexity O(n^2)
+        Space Complexity O(1)
+        """
         for i in range(len(nums)):
             for j in range(i + 1, len(nums)):
                 if nums[i] == nums[j]:
                     return True
         return False
 
-    """
-    Sorting
-    Sorts the list and loops through the nums once checking every neighbor to see if they match.
-    Time Complexity O(nlogn)
-    Space Complexity O(1)
-    """
-
     def contains_duplicate_sort(self, nums: List[int]) -> bool:
+        """
+        Sorting
+        Sorts the list and loops through the nums once checking every neighbor to see if they match.
+        Time Complexity O(nlogn)
+        Space Complexity O(1)
+        """
         nums.sort()
 
         for i in range(len(nums) - 1):
@@ -31,13 +29,12 @@ class Solution:
                 return True
         return False
 
-    """
-    Uses a set to store the values and check if the value is already in the set.
-    Time Complexity O(n)
-    Space Complexity O(n)
-    """
-
     def contains_duplicate_set(self, nums: List[int]) -> bool:
+        """
+        Uses a set to store the values and check if the value is already in the set.
+        Time Complexity O(n)
+        Space Complexity O(n)
+        """
         hash_set = set()
         for num in nums:
             if num in hash_set:
@@ -45,13 +42,12 @@ class Solution:
             hash_set.add(num)
         return False
 
-    """
-    Uses set as well but comparing the lengths of the set vs the list
-    Time Complexity O(n)
-    Space Complexity O(n)
-    """
-
     def contains_duplicate_set_len(self, nums: List[int]) -> bool:
+        """
+        Uses set as well but comparing the lengths of the set vs the list
+        Time Complexity O(n)
+        Space Complexity O(n)
+        """
         return len(set(nums)) != len(nums)
 
 
