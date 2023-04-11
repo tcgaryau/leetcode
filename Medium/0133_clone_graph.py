@@ -6,6 +6,12 @@ class Node:
 
 
 class Solution:
+    """
+    Solution uses a hashmap to represent the visited notes and uses the DFS algorithm to recursively create new Nodes and append it to the neighbors
+    Time Complexity: O(V + E)
+    Space Complexity: O(V) - the hashmap
+    """
+
     def cloneGraph(self, node: 'Node') -> 'Node':
         old_to_new_map = {}
 
