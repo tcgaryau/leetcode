@@ -3,6 +3,9 @@ from typing import List
 
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
+        """
+        If we use a naive recursion, it'll be a O(2^(2n)) solution. This solution uses backtracking with only the possible values.
+        """
         result = []
         stack = []
 
